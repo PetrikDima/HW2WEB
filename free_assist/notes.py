@@ -2,9 +2,10 @@ import shelve
 from pathlib import Path
 
 from function import warning_msg, info_msg
+from abstractions import Interface
 
 
-class Note:
+class Note(Interface):
     print_page_size = -1
 
     def __init__(self, note_text: str = "", note_tags: list = None):

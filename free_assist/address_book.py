@@ -7,6 +7,7 @@ from dateutil.parser import parse as date_parse, ParserError
 from dateutil.relativedelta import relativedelta
 
 from function import error_msg, warning_msg, info_msg
+from abstractions import Interface
 
 
 class Field:
@@ -122,7 +123,7 @@ class Birthday(Field):
         return self.value.strftime("%d.%m.%Y") if self.value else ""
 
 
-class Record:
+class Record(Interface):
     def __init__(self, cnt_name: Name, phone: Phone = None):
         self.cnt_name = cnt_name
         self.phones = [phone] if phone else []
